@@ -85,7 +85,20 @@ let round=0;
 while(round<5){
     playRound();
 }
+console.log('FINAL SCORE');
+console.log('User: '+ userWins);
+console.log('Computer: '+ computerWins);
 
-console.log(userWins,computerWins);
+if (userWins === computerWins){
+console.log("It's a tie!")
+}
+else{
+    if(userWins > computerWins){
+        console.log('The User has won!!');
+    }
+    else{
+        console.log('The Computer has won!!');
+    }
+}
 
 
