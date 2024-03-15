@@ -1,4 +1,10 @@
-let a = 10;
-let b = 20;
+function getComputerChoice() {
+    const choices = ['rock', 'paper','scissors'];
+    let randomIndex = Math.floor(Math.random() * choices.length);
+    let randomChoice = choices[randomIndex];
+    return randomChoice;
+}
 
-console.log(a+b);
+let computerChoice = getComputerChoice();
+// console.log(computerChoice);
+
