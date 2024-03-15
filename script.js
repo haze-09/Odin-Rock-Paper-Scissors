@@ -1,59 +1,91 @@
-function getComputerChoice() {
-    const choices = ['rock', 'paper','scissors'];
-    let randomIndex = Math.floor(Math.random() * choices.length);
-    let randomChoice = choices[randomIndex];
-    console.log('Computer: '+ randomChoice);
+ function playRound(){  
     
-    return randomChoice;
-}
+   function getComputerChoice() {
+        const choices = ['rock', 'paper','scissors'];
+        let randomIndex = Math.floor(Math.random() * choices.length);
+        let randomChoice = choices[randomIndex];
+        
+        return randomChoice;
+    }
 
-function getUserChoice(){
-    let userChoice=prompt('choose');
-    userChoice = userChoice.toLowerCase();
+    function getUserChoice(){
+        let userChoice=prompt('choose');
+        userChoice = userChoice.toLowerCase();
 
-    if(userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors'){
-        console.log('User: '+ userChoice);
-        return userChoice;
+        if(userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors'){
+            return userChoice;
+        }
+        else{
+            console.log('incorrect choice :(');
+            console.log('Choose between rock, paper and scissors.');
+            return getUserChoice();
+        }        
+        
+    }
+
+    let userChoice= getUserChoice();
+    let computerChoice = getComputerChoice();
+
+    console.log('User: '+ userChoice);
+    console.log('Computer: '+ computerChoice);
+
+
+
+    
+
+    if(userChoice === computerChoice){
+        console.log('Uh oh! Its a tie');
+        round +=1; 
     }
     else{
-        console.log('incorrect choice :(');
-        console.log('Choose between rock, paper and scissors.');
-        getUserChoice();
-    }
-    
-}
+        if(userChoice === 'rock'){
+            if(computerChoice === 'scissors'){
+                console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
+                userWins += 1;
+                round +=1;
+            }
+            else{
+                console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');
+                computerWins += 1;
+                round +=1;
+            }
+        }
+        else if(userChoice === 'scissors'){
+            if(computerChoice === 'paper'){
+                console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
+                userWins += 1;
+                round +=1;
+            }
+            else{
+                console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');   
+                computerWins += 1;
+                round +=1; 
+            }   
+        }
+        else if(userChoice === 'paper'){
+            if(computerChoice === 'rock'){
+                console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
+                userWins += 1;
+                round +=1;
+            }
+            else{
+                console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');
+                computerWins += 1;
+                round +=1;
+            }
 
-let userChoice= getUserChoice();
-
-let computerChoice = getComputerChoice();
-
-if(userChoice === computerChoice){
-    console.log('Uh oh! Its a tie');
-}
-else{
-    if(userChoice === 'rock'){
-        if(computerChoice === 'scissors'){
-            console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
         }
-        else{
-            console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');
-        }
-    }
-    else if(userChoice === 'scissors'){
-        if(computerChoice === 'paper'){
-            console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
-        }
-        else{
-            console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');    
-        }   
-    }
-    else if(userChoice === 'paper'){
-        if(computerChoice === 'rock'){
-            console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
-        }
-        else{
-            console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');
-        }
-
     }
 }
+
+let userWins=0;
+let computerWins=0;
+let round=0;
+
+while(round<5){
+    playRound();
+}
+
+console.log(userWins,computerWins);
+
+
