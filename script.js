@@ -40,36 +40,36 @@
     else{
         if(userChoice === 'rock'){
             if(computerChoice === 'scissors'){
-                console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
+                console.log(`You won! ${userChoice} beats ${computerChoice}.`);
                 userWins += 1;
                 round +=1;
             }
             else{
-                console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');
+                console.log(`You lost! ${computerChoice} beats ${userChoice}.`);
                 computerWins += 1;
                 round +=1;
             }
         }
         else if(userChoice === 'scissors'){
             if(computerChoice === 'paper'){
-                console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
+                console.log(`You won! ${userChoice} beats ${computerChoice}.`);
                 userWins += 1;
                 round +=1;
             }
             else{
-                console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');   
+                console.log(`You lost! ${computerChoice} beats ${userChoice}.`);   
                 computerWins += 1;
                 round +=1; 
             }   
         }
         else if(userChoice === 'paper'){
             if(computerChoice === 'rock'){
-                console.log('You won! '+ userChoice + ' beats ' + computerChoice + '.');
+                console.log(`You won! ${userChoice} beats ${computerChoice}.`);
                 userWins += 1;
                 round +=1;
             }
             else{
-                console.log('You lost :( ! '+ computerChoice + ' beats ' + userChoice + '.');
+                console.log(`You lost! ${computerChoice} beats ${userChoice}.`);
                 computerWins += 1;
                 round +=1;
             }
