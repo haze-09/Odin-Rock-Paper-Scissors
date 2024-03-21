@@ -1,0 +1,47 @@
+.polka {
+    background-image: 
+    radial-gradient(rgb(255, 255, 255) 12.4%, transparent 15.6%),
+    radial-gradient(rgb(255, 255, 255) 12.4%, transparent 15.6%);
+  background-position: 0px 0px, 16px 16px;
+  background-size: 32px 32px;
+  background-color: rgb(255, 213, 0);
+  }
+
+  .glass{
+    background: rgba( 255, 255, 255, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 20px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#playArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+
+#choices{
+    display: flex;
+    gap:30px;
+}
+
+.option{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+}
