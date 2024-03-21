@@ -78,27 +78,46 @@
     }
 }
 
-let userWins=0;
-let computerWins=0;
-let round=0;
+let choices = document.querySelector('#choices')
 
-while(round<5){
-    playRound();
-}
-console.log('FINAL SCORE');
-console.log('User: '+ userWins);
-console.log('Computer: '+ computerWins);
+choices.addEventListener('click',(e)=>{
+    let target = e.target;
+    let userChoice;
 
-if (userWins === computerWins){
-console.log("It's a tie!")
-}
-else{
-    if(userWins > computerWins){
-        console.log('The User has won!!');
+    switch(target.id){
+        case 'rock':
+            userChoice='rock';
+            break;
+        case 'paper':
+            userChoice='paper';
+            break;
+        case 'scissors':
+            userChoice='scissors';
+            break;
     }
-    else{
-        console.log('The Computer has won!!');
-    }
-}
+})
+
+// let userWins=0;
+// let computerWins=0;
+// let round=0;
+
+// while(round<5){
+//     playRound();
+// }
+// console.log('FINAL SCORE');
+// console.log('User: '+ userWins);
+// console.log('Computer: '+ computerWins);
+
+// if (userWins === computerWins){
+// console.log("It's a tie!")
+// }
+// else{
+//     if(userWins > computerWins){
+//         console.log('The User has won!!');
+//     }
+//     else{
+//         console.log('The Computer has won!!');
+//     }
+// }
 
 
