@@ -1,4 +1,4 @@
- function playRound(){  
+ function playRound(userChoice){  
     
    function getComputerChoice() {
         const choices = ['rock', 'paper','scissors'];
@@ -8,23 +8,8 @@
         return randomChoice;
     }
 
-    function getUserChoice(){
-        let userChoice=prompt('choose');
-        userChoice = userChoice.toLowerCase();
-
-        if(userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors'){
-            return userChoice;
-        }
-        else{
-            console.log('incorrect choice :(');
-            console.log('Choose between rock, paper and scissors.');
-            return getUserChoice();
-        }        
-        
-    }
-
-    let userChoice= getUserChoice();
     let computerChoice = getComputerChoice();
+    let playArea = document.querySelector('#playArea');
 
     console.log('User: '+ userChoice);
     console.log('Computer: '+ computerChoice);
@@ -34,42 +19,76 @@
     
 
     if(userChoice === computerChoice){
-        console.log('Uh oh! Its a tie');
+        let tie = document.createElement('p');
+        tie.textContent='Uh oh! Its a tie';
+        tie.classList.add('choose');
+        playArea.removeChild(playArea.children[2]);
+        playArea.appendChild(tie);
         round +=1; 
     }
     else{
         if(userChoice === 'rock'){
             if(computerChoice === 'scissors'){
-                console.log(`You won! ${userChoice} beats ${computerChoice}.`);
+                let statement = document.createElement('p');
+                statement.textContent = `
+                You won! ${userChoice} beats ${computerChoice}.`;
+                statement.classList.add('choose');
+                playArea.removeChild(playArea.children[2]);
+                playArea.appendChild(statement);
                 userWins += 1;
                 round +=1;
             }
             else{
-                console.log(`You lost! ${computerChoice} beats ${userChoice}.`);
+                let statement = document.createElement('p');
+                statement.textContent =`
+                You lost! ${computerChoice} beats ${userChoice}.`;
+                statement.classList.add('choose');
+                playArea.removeChild(playArea.children[2]);
+                playArea.appendChild(statement);
                 computerWins += 1;
                 round +=1;
             }
         }
         else if(userChoice === 'scissors'){
             if(computerChoice === 'paper'){
-                console.log(`You won! ${userChoice} beats ${computerChoice}.`);
+                let statement = document.createElement('p');
+                statement.textContent = `
+                You won! ${userChoice} beats ${computerChoice}.`;
+                statement.classList.add('choose');
+                playArea.removeChild(playArea.children[2]);
+                playArea.appendChild(statement);
                 userWins += 1;
                 round +=1;
             }
             else{
-                console.log(`You lost! ${computerChoice} beats ${userChoice}.`);   
+                let statement = document.createElement('p');
+                statement.textContent =`
+                You lost! ${computerChoice} beats ${userChoice}.`;
+                statement.classList.add('choose');
+                playArea.removeChild(playArea.children[2]);
+                playArea.appendChild(statement);   
                 computerWins += 1;
                 round +=1; 
             }   
         }
         else if(userChoice === 'paper'){
             if(computerChoice === 'rock'){
-                console.log(`You won! ${userChoice} beats ${computerChoice}.`);
+                let statement = document.createElement('p');
+                statement.textContent = `
+                You won! ${userChoice} beats ${computerChoice}.`;
+                statement.classList.add('choose');
+                playArea.removeChild(playArea.children[2]);
+                playArea.appendChild(statement);
                 userWins += 1;
                 round +=1;
             }
             else{
-                console.log(`You lost! ${computerChoice} beats ${userChoice}.`);
+                let statement = document.createElement('p');
+                statement.textContent =`
+                You lost! ${computerChoice} beats ${userChoice}.`;
+                statement.classList.add('choose');
+                playArea.removeChild(playArea.children[2]);
+                playArea.appendChild(statement);
                 computerWins += 1;
                 round +=1;
             }
@@ -78,7 +97,7 @@
     }
 }
 
-let choices = document.querySelector('#choices')
+let choices = document.querySelector('#choices');
 
 choices.addEventListener('click',(e)=>{
     let target = e.target;
@@ -87,12 +106,15 @@ choices.addEventListener('click',(e)=>{
     switch(target.id){
         case 'rock':
             userChoice='rock';
+            playRound(userChoice);
             break;
         case 'paper':
             userChoice='paper';
+            playRound(userChoice);
             break;
         case 'scissors':
             userChoice='scissors';
+            playRound(userChoice);
             break;
     }
 })
