@@ -97,6 +97,22 @@
     }
 }
 
+function refresh(){
+    let playAgain = document.createElement('button');
+    playAgain.textContent='Play again?';
+    playAgain.addEventListener('click',()=>{
+        window.location.reload();
+    })
+    playArea.removeChild(playArea.children[2]);                
+    playArea.appendChild(playAgain);
+    
+
+}
+
+let userWins=0;
+let computerWins=0;
+let round=0;
+let display = document.querySelector('#welcome');
 let choices = document.querySelector('#choices');
 
 choices.addEventListener('click',(e)=>{
@@ -107,39 +123,63 @@ choices.addEventListener('click',(e)=>{
         case 'rock':
             userChoice='rock';
             playRound(userChoice);
+            display.textContent=`Round ${round}`;
             break;
         case 'paper':
             userChoice='paper';
             playRound(userChoice);
+            display.textContent=`Round ${round}`;
             break;
         case 'scissors':
             userChoice='scissors';
             playRound(userChoice);
+            display.textContent=`Round ${round}`;
             break;
     }
+    
+    if(round === 5){
+
+        let seeResult = document.createElement('button')
+        seeResult.textContent = 'Check results';                      
+        playArea.appendChild(seeResult);
+
+        seeResult.addEventListener('click',()=>{
+            playArea.removeChild(playArea.children[2]);      
+            if (userWins === computerWins){
+                display.textContent="It's a tie!";
+                refresh();
+            }
+               
+            else{
+                if(userWins > computerWins){
+                    display.textContent='The User has won!!';
+                    refresh();
+                 }
+                else{
+                    display.textContent='The Computer has won!!';
+                    refresh();
+                }
+            }
+        });
+
+       
+                  
+                
+        
+
+    }
+    
+
 })
 
-// let userWins=0;
-// let computerWins=0;
-// let round=0;
 
-// while(round<5){
-//     playRound();
-// }
-// console.log('FINAL SCORE');
-// console.log('User: '+ userWins);
-// console.log('Computer: '+ computerWins);
 
-// if (userWins === computerWins){
-// console.log("It's a tie!")
-// }
-// else{
-//     if(userWins > computerWins){
-//         console.log('The User has won!!');
-//     }
-//     else{
-//         console.log('The Computer has won!!');
-//     }
-// }
+    
+
+
+console.log('FINAL SCORE');
+console.log('User: '+ userWins);
+console.log('Computer: '+ computerWins);
+
 
 

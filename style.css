@@ -19,11 +19,42 @@
 
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: "Poppins", sans-serif;    
+    font-family: "Poppins", sans-serif;   
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#header{
+    display:flex;
+    justify-content: space-between;
+}
+
+.headerDivs{
+    padding: 20px;
+   
+}
+
+.headerText{
+    margin: 0;
+}
+
+#player{
+    color: rgb(31, 212, 31);
+    font-weight: 500;
+}
+
+#computer{
+    color: red;
+    font-weight: 500;
 }
 
 #playArea{
