@@ -114,30 +114,42 @@ let computerWins=0;
 let round=0;
 let display = document.querySelector('#welcome');
 let choices = document.querySelector('#choices');
+let player = document.querySelector('#player');
+let computer = document.querySelector('#computer');
+
+let gameEnded = false;
 
 choices.addEventListener('click',(e)=>{
     let target = e.target;
     let userChoice;
+    if (gameEnded) return;
 
     switch(target.id){
         case 'rock':
             userChoice='rock';
             playRound(userChoice);
             display.textContent=`Round ${round}`;
+            player.textContent=`Player: ${userWins}`;
+            computer.textContent=`Computer: ${computerWins}`;
             break;
         case 'paper':
             userChoice='paper';
             playRound(userChoice);
             display.textContent=`Round ${round}`;
+            player.textContent=`Player: ${userWins}`;
+            computer.textContent=`Computer: ${computerWins}`;
             break;
         case 'scissors':
             userChoice='scissors';
             playRound(userChoice);
             display.textContent=`Round ${round}`;
+            player.textContent=`Player: ${userWins}`;
+            computer.textContent=`Computer: ${computerWins}`;
             break;
     }
     
     if(round === 5){
+        gameEnded = true;
 
         let seeResult = document.createElement('button')
         seeResult.textContent = 'Check results';                      
