@@ -8,6 +8,28 @@
         return randomChoice;
     }
 
+    function winText(){
+        let statement = document.createElement('p');
+        statement.textContent = `
+        You won! ${userChoice} beats ${computerChoice}.`;
+        statement.classList.add('choose');
+        playArea.removeChild(playArea.children[2]);
+        playArea.appendChild(statement);
+        userWins += 1;
+        round +=1;
+    }
+
+    function loseText(){
+        let statement = document.createElement('p');
+        statement.textContent =`
+        You lost! ${computerChoice} beats ${userChoice}.`;
+        statement.classList.add('choose');
+        playArea.removeChild(playArea.children[2]);
+        playArea.appendChild(statement);
+        computerWins += 1;
+        round +=1;
+    }
+
     let computerChoice = getComputerChoice();
     let playArea = document.querySelector('#playArea');
 
@@ -29,68 +51,28 @@
     else{
         if(userChoice === 'rock'){
             if(computerChoice === 'scissors'){
-                let statement = document.createElement('p');
-                statement.textContent = `
-                You won! ${userChoice} beats ${computerChoice}.`;
-                statement.classList.add('choose');
-                playArea.removeChild(playArea.children[2]);
-                playArea.appendChild(statement);
-                userWins += 1;
-                round +=1;
+                winText();
+                
             }
             else{
-                let statement = document.createElement('p');
-                statement.textContent =`
-                You lost! ${computerChoice} beats ${userChoice}.`;
-                statement.classList.add('choose');
-                playArea.removeChild(playArea.children[2]);
-                playArea.appendChild(statement);
-                computerWins += 1;
-                round +=1;
+                loseText();
+                
             }
         }
         else if(userChoice === 'scissors'){
             if(computerChoice === 'paper'){
-                let statement = document.createElement('p');
-                statement.textContent = `
-                You won! ${userChoice} beats ${computerChoice}.`;
-                statement.classList.add('choose');
-                playArea.removeChild(playArea.children[2]);
-                playArea.appendChild(statement);
-                userWins += 1;
-                round +=1;
+                winText()
             }
             else{
-                let statement = document.createElement('p');
-                statement.textContent =`
-                You lost! ${computerChoice} beats ${userChoice}.`;
-                statement.classList.add('choose');
-                playArea.removeChild(playArea.children[2]);
-                playArea.appendChild(statement);   
-                computerWins += 1;
-                round +=1; 
+                loseText();
             }   
         }
         else if(userChoice === 'paper'){
             if(computerChoice === 'rock'){
-                let statement = document.createElement('p');
-                statement.textContent = `
-                You won! ${userChoice} beats ${computerChoice}.`;
-                statement.classList.add('choose');
-                playArea.removeChild(playArea.children[2]);
-                playArea.appendChild(statement);
-                userWins += 1;
-                round +=1;
+                winText();
             }
             else{
-                let statement = document.createElement('p');
-                statement.textContent =`
-                You lost! ${computerChoice} beats ${userChoice}.`;
-                statement.classList.add('choose');
-                playArea.removeChild(playArea.children[2]);
-                playArea.appendChild(statement);
-                computerWins += 1;
-                round +=1;
+                loseText();
             }
 
         }
@@ -108,6 +90,7 @@ function refresh(){
     
 
 }
+
 
 let userWins=0;
 let computerWins=0;
